@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings
+classes
+metaapp.iml
+metaapp.ipr
+metaapp.iws
+target
