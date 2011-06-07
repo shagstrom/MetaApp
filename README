@@ -1,0 +1,8 @@
+First of all read the LICENSE.
+
+This application is an implementation of the Entity Attribute Value data model in Grails.
+
+This is how you get started:
+
+1. Edit grails-app/conf/DataSource.groovy to reflect your database settings
+2. run "grails run-app" from the command line
