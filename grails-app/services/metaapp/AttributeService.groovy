@@ -21,7 +21,7 @@ class AttributeService {
 	def insertRow(AttributeRow row) {
 		Entity entity = Entity.create(row.metaEntity)
 		row.attributes.each {
-			Attribute attribute = entity.attribute(row.attribute.metaAttribute.name)
+			Attribute attribute = entity.attribute(it.metaAttribute)
 			attribute.value = attribute.metaAttribute.createValue(it.value)
 		}
 		entity.save()

@@ -36,7 +36,7 @@ class EntityService {
 			MetaAttribute metaAttribute = attributeFilter.filteredAttribute
 			String value = attributeFilter.filterOnValue
 			Entity.executeQuery("\
-				SELECT COUNT(e) \
+				SELECT COUNT(DISTINCT e.id) \
 				${innerQuery(metaAttribute.type)} \
 			", [ metaEntity, metaAttribute, value ])[0]
 		}

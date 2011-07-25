@@ -5,5 +5,6 @@ import metaapp.data.Attribute
 
 class AttributeCommand {
 	Attribute attribute
+	MetaAttribute metaAttribute
 	String value
 }

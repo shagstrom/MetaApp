@@ -9,7 +9,7 @@
 	<g:set var="metaAttribute" value="${attribute.metaAttribute}" />
 </g:if>
 <g:else>
-	<input type="hidden" name="${name}.attribute.metaAttribute.id" value="${metaAttribute.id}" />
+	<input type="hidden" name="${name}.metaAttribute.id" value="${metaAttribute.id}" />
 </g:else>
 
 <g:if test="${metaAttribute.type == 'String'}">

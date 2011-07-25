@@ -2,7 +2,7 @@
     <head>
     </head>
     <body>
-		<g:form>
+		<g:form params="${queryMap}">
 			<g:hiddenField name="metaEntity.id" value="${metaEntity.id}" />
 			<g:each in="${layout.attributeLayouts}" var="attributeLayout" status="column">
 				<label>
@@ -13,7 +13,8 @@
 			</g:each>
 			<g:actionSubmit value="Add" action="insert" />
 		</g:form>
-		<g:form>
+		<g:paginate total="${totalNumberOfEntities}" params="${queryMap}" />
+		<g:form params="${queryMap}">
 			<table>
 				<thead>
 					<tr>

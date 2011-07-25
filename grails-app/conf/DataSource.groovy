@@ -1,9 +1,5 @@
 dataSource {
     pooled = true
-    driverClassName = "org.postgresql.Driver"
-	dialect = org.hibernate.dialect.PostgreSQLDialect
-    username = "simon"
-    password = "password"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -14,8 +10,12 @@ hibernate {
 environments {
     development {
         dataSource {
+		    driverClassName = "org.postgresql.Driver"
+			dialect = org.hibernate.dialect.PostgreSQLDialect
+		    username = "simon"
+		    password = "password"
             dbCreate = "create-drop"
-            url = "jdbc:postgresql://localhost:5432/metaapp"
+            url = "jdbc:postgresql://localhost:5444/metaapp"
 /*			logSql = true*/
         }
     }
