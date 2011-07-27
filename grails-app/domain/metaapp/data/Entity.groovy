@@ -16,7 +16,7 @@ public class Entity {
 	}
 
 	Attribute attribute(String attributeName) {
-		attributes.find { Attribute a -> a.metaAttribute.name == attributeName }
+		attributes.find { it.metaAttribute.name == attributeName }
 	}
 
 	Attribute attribute(MetaAttribute metaAttribute) {
@@ -25,7 +25,7 @@ public class Entity {
 
 	static Entity create(MetaEntity metaEntity) {
 		def entity = new Entity(metaEntity: metaEntity)
-		metaEntity.getMetaAttributes().each {
+		metaEntity.metaAttributes.each {
 			entity.addToAttributes(new Attribute(metaAttribute: it))
 		}
 		return entity
