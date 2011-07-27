@@ -13,7 +13,14 @@
 			</g:each>
 			<g:actionSubmit value="Add" action="insert" />
 		</g:form>
-		<g:paginate total="${totalNumberOfEntities}" params="${queryMap}" />
+		<g:form method="GET">
+			<select name="filteredAttribute.id">
+				<g:each in="${layout.attributeLayouts}" var="attributeLayout" status="column">
+					<option value="${attributeLayout.metaAttribute.id}">${attributeLayout.metaAttribute.name}</option>
+				</g:each>
+			</select>
+			<input type="text" name="filterOnValue" />
+		</g:form>
 		<g:form params="${queryMap}">
 			<table>
 				<thead>
@@ -38,5 +45,6 @@
 			</table>
 			<g:actionSubmit value="Update" action="update" />
 		</g:form>
+		<g:paginate total="${totalNumberOfEntities}" params="${queryMap}" />
     </body>
 </html>

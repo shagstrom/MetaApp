@@ -19,6 +19,10 @@ public class Entity {
 		attributes.find { Attribute a -> a.metaAttribute.name == attributeName }
 	}
 
+	Attribute attribute(MetaAttribute metaAttribute) {
+		attributes.find { it.metaAttribute.id == metaAttribute.id }
+	}
+
 	static Entity create(MetaEntity metaEntity) {
 		def entity = new Entity(metaEntity: metaEntity)
 		metaEntity.getMetaAttributes().each {
