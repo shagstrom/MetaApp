@@ -15,7 +15,7 @@ environments {
 		    username = "simon"
 		    password = "password"
             dbCreate = "create-drop"
-            url = "jdbc:postgresql://localhost:5444/metaapp"
+            url = "jdbc:postgresql://localhost:5432/metaapp"
 /*			logSql = true*/
         }
     }

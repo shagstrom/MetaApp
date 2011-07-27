@@ -14,7 +14,7 @@ class DataEntryController {
 	def entityService
 	
 	def afterInterceptor = { model ->
-		model.queryMap = getQueryParams(request)
+		model.queryMap = getQueryMap(request)
 	}
 
     def index = { AttributeFilter filter, Paginator paginator ->
@@ -32,15 +32,15 @@ class DataEntryController {
 
 	def insert = { AttributeRow row ->
 		attributeService.insertRow(row)
-		redirect(action: 'index', params: getQueryParams(request))
+		redirect(action: 'index', params: getQueryMap(request))
 	}
 
 	def update = { AttributeGrid grid ->
 		attributeService.updateGrid(grid)
-		redirect(action: 'index', params: getQueryParams(request))
+		redirect(action: 'index', params: getQueryMap(request))
 	}
 	
-	def getQueryParams(request) {
+	def getQueryMap(request) {
 		def map = [:]
 		request.queryString?.split("&").each {
 			def parts = it.split("=")
