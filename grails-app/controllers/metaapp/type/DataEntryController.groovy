@@ -12,17 +12,17 @@ class DataEntryController {
 
 	def attributeService
 	def entityService
-	
+
 	def afterInterceptor = { model ->
 		model.queryMap = getQueryMap(request)
 	}
 
-    def index = { AttributeFilter filter, Paginator paginator ->
+	def index = { AttributeFilter filter, Paginator paginator ->
 		def orderMetaData = MetaEntity.findByName("Order")
 		def orders = entityService.findAll(orderMetaData, filter, paginator)
 		def totalNumberOfOrders = entityService.count(orderMetaData, filter)
 		def placeOrderLayout = Layout.findByName("Place Order")
-		return [ 
+		return [
 			entities: orders,
 			totalNumberOfEntities: totalNumberOfOrders,
 			layout: placeOrderLayout,
@@ -39,7 +39,7 @@ class DataEntryController {
 		attributeService.updateGrid(grid)
 		redirect(action: 'index', params: getQueryMap(request))
 	}
-	
+
 	def getQueryMap(request) {
 		def map = [:]
 		request.queryString?.split("&").each {
@@ -48,5 +48,4 @@ class DataEntryController {
 		}
 		map
 	}
-	
 }
